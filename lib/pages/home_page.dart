@@ -30,10 +30,78 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Builder(
+              builder: (context) => IconButton(
+                    icon: Icon(Icons.menu, color: Colors.black),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                  ))),
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
       backgroundColor: Colors.deepOrange,
+      drawer: Drawer(
+          backgroundColor: Colors.grey[900],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //logo
+              Column(
+                children: [
+                  DrawerHeader(
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    decoration: null,
+                    child: Image.asset(
+                      'lib/images/logo.png',
+                      color: Colors.white,
+                    ),
+                  ),
+                  
+                  SizedBox(
+                    height: 40,
+                  ),
+                  //other pages
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: ListTile(
+                      iconColor: Colors.white,
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.home,
+                      ),
+                      title: Text("Home"),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: ListTile(
+                      iconColor: Colors.white,
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.info,
+                      ),
+                      title: Text("About"),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: ListTile(
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  leading: Icon(
+                    Icons.logout,
+                  ),
+                  title: Text("Logout"),
+                ),
+              ),
+            ],
+          )),
       body: _pages[_selectedIndex],
     );
   }
