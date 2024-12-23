@@ -5,6 +5,16 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        backgroundColor: Colors.grey[300],
+        body: Column(
+          children: [
+            //Logo
+            Image.asset('lib/assets/imgs/mclaren_logo.png', height: 240,),
+            //title
+            //subtitle
+            //start button
+          ],
+        ));
   }
 }
