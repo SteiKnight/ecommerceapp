@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -6,15 +7,74 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
-        body: Column(
-          children: [
-            //Logo
-            Image.asset('lib/assets/imgs/mclaren_logo.png', height: 240,),
-            //title
-            //subtitle
-            //start button
-          ],
+        backgroundColor: Colors.deepOrange[500],
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 25,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //Logo
+                Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Image.asset(
+                    'lib/images/mclaren_logo.png',
+                    height: 100,
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+
+                //title
+                Text("Fearlessly Forward",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    )),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                //subtitle
+                Text(
+                  "Brand New High speed Super-Cars made with custom materials of premium quality",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+
+                //start button
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      )),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[900],
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(25),
+                      child: const Center(
+                        child: Text("Start Shopping",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ));
   }
 }
