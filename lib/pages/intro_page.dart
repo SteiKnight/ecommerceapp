@@ -53,11 +53,16 @@ class IntroPage extends StatelessWidget {
 
                 //start button
                 GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      )),
+                  // onTap: () => Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => HomePage(),
+                  //     ),),
+
+                  onTap: () {
+                    Navigator.pushNamed(context, '/homepage');
+                  },
+
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[900],
