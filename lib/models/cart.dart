@@ -1,6 +1,8 @@
-import 'package:ecommerceapp/models/car.dart';
+import 'package:flutter/material.dart';
 
-class Cart {
+import 'car.dart';
+
+class Cart extends ChangeNotifier {
   //list of cars
   List<Car> carShop = [
     Car(
@@ -42,10 +44,12 @@ class Cart {
   //add items to cart
   void addItemToCart(Car car) {
     userCart.add(car);
+    notifyListeners();
   }
 
   //remove item from cart
   void removeFromCart(Car car) {
     userCart.remove(car);
+    notifyListeners();
   }
 }

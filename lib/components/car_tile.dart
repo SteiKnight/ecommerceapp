@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/models/Car.dart';
+import 'package:ecommerceapp/models/car.dart';
 import 'package:flutter/material.dart';
 
 class CarTile extends StatelessWidget {
@@ -33,7 +33,7 @@ class CarTile extends StatelessWidget {
           ),
           //description
           Container(
-            margin: EdgeInsets.symmetric(horizontal:25),
+            margin: EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               textAlign: TextAlign.center,
               car.description,
@@ -63,7 +63,7 @@ class CarTile extends StatelessWidget {
 
                     //price
                     Text(
-                      '\$' + car.price,
+                      '\$${car.price}',
                       style: TextStyle(
                         color: Colors.grey[700],
                       ),

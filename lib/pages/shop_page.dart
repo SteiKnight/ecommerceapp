@@ -1,6 +1,8 @@
 import 'package:ecommerceapp/components/car_tile.dart';
-import 'package:ecommerceapp/models/Car.dart';
+import 'package:ecommerceapp/models/car.dart';
+import 'package:ecommerceapp/models/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -12,87 +14,87 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        //search bar
-        Container(
-          padding: EdgeInsets.all(12),
-          margin: EdgeInsets.symmetric(horizontal: 25),
-          decoration: BoxDecoration(
-              color: Colors.deepOrange.shade300,
-              borderRadius: BorderRadius.circular(12)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Search",
-                style: TextStyle(
-                  color: Colors.deepOrange[100],
+    return Consumer<Cart>(
+      builder: (context, value, child) => Column(
+        children: [
+          //search bar
+          Container(
+            padding: EdgeInsets.all(12),
+            margin: EdgeInsets.symmetric(horizontal: 25),
+            decoration: BoxDecoration(
+                color: Colors.deepOrange.shade300,
+                borderRadius: BorderRadius.circular(12)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Search",
+                  style: TextStyle(
+                    color: Colors.deepOrange[100],
+                  ),
                 ),
-              ),
-              Icon(Icons.search, color: Colors.deepOrange[100]),
-            ],
+                Icon(Icons.search, color: Colors.deepOrange[100]),
+              ],
+            ),
           ),
-        ),
 
-        //message
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25),
-          child: Text('To do something well is so worthwhile',
-              style: TextStyle(
-                color: Colors.deepOrange[850],
-              )),
-        ),
-        //hot picks
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                'Hot Picks 🔥',
+          //message
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 25),
+            child: Text('To do something well is so worthwhile',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-              Text(
-                'See all',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange[300],
-                ),
-              )
-            ],
+                  color: Colors.deepOrange[850],
+                )),
           ),
-        ),
-        const SizedBox(height: 10),
+          //hot picks
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'Hot Picks 🔥',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                Text(
+                  'See all',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange[300],
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
 
-        Expanded(
-          child: ListView.builder(
-            itemCount: 4,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              //create a car
-              Car car = Car(
-                model: '765 LT',
-                price: '382 500',
-                imagePath: 'lib/images/765lt.png',
-                description:
-                    '755-horsepower twin-turbocharged V-8 mounted amidships',
-              );
-              return CarTile(car: car);
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                //create a car
+                Car car = value.getCarList()[index];
+
+                //return a car
+                return CarTile(
+                  car: car,
+                );
+              },
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 25),
-          child: Divider(
-            color: Colors.transparent,
-          ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.only(top: 25),
+            child: Divider(
+              color: Colors.transparent,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
