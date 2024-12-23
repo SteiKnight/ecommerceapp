@@ -2,10 +2,12 @@ import 'package:ecommerceapp/models/car.dart';
 import 'package:flutter/material.dart';
 
 class CarTile extends StatelessWidget {
+  void Function()? onTap;
   Car car;
   CarTile({
     super.key,
     required this.car,
+    required this.onTap,
   });
 
   @override
@@ -32,8 +34,8 @@ class CarTile extends StatelessWidget {
             child: Image.asset(car.imagePath),
           ),
           //description
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 25),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               textAlign: TextAlign.center,
               car.description,
@@ -72,19 +74,22 @@ class CarTile extends StatelessWidget {
                 ),
 
                 //add to cart button
-                Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        bottomRight: Radius.circular(25),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
+                        ),
                       ),
-                    ),
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    )),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      )),
+                ),
               ],
             ),
           ),

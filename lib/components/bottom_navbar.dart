@@ -21,6 +21,7 @@ class MyBottomNavBar extends StatelessWidget {
         tabBackgroundColor: Colors.deepOrange.shade400,
         mainAxisAlignment: MainAxisAlignment.center,
         tabBorderRadius: 40,
+        gap: 8,
         onTabChange: (value) => onTabChange!(value),
         tabs: const [
           GButton(
