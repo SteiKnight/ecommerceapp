@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/components/car_tile.dart';
+import 'package:ecommerceapp/models/Car.dart';
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
@@ -70,9 +71,25 @@ class _ShopPageState extends State<ShopPage> {
 
         Expanded(
           child: ListView.builder(
+            itemCount: 4,
+            scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CarTile();
+              //create a car
+              Car car = Car(
+                model: '765 LT',
+                price: '382 500',
+                imagePath: 'lib/images/765lt.png',
+                description:
+                    '755-horsepower twin-turbocharged V-8 mounted amidships',
+              );
+              return CarTile(car: car);
             },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 25),
+          child: Divider(
+            color: Colors.transparent,
           ),
         )
       ],
