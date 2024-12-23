@@ -35,7 +35,12 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           leading: Builder(
               builder: (context) => IconButton(
-                    icon: Icon(Icons.menu, color: Colors.black),
+                    icon: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 12,
+                      ),
+                      child: Icon(Icons.menu, color: Colors.black),
+                    ),
                     onPressed: () {
                       Scaffold.of(context).openDrawer();
                     },
@@ -60,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white,
                     ),
                   ),
-                  
+
                   SizedBox(
                     height: 40,
                   ),
