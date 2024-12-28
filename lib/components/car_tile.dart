@@ -13,7 +13,8 @@ class CarTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25),
+      //margin: EdgeInsets.only(left: 25),
+      margin: EdgeInsets.all(10),
       width: 280,
       decoration: BoxDecoration(
         color: Colors.deepOrange[400],

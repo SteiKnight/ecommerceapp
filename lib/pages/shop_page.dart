@@ -91,6 +91,7 @@ class _ShopPageState extends State<ShopPage> {
           Expanded(
             child: ListView.builder(
               itemCount: 4,
+              padding: EdgeInsets.symmetric(horizontal: 25),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 //create a car

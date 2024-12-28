@@ -34,11 +34,11 @@ class _CartPageState extends State<CartPage> {
                 itemCount: value.getUserCart().length,
                 itemBuilder: (context, index) {
                   //get each car
-                  Car _individualCar = value.getUserCart()[index];
+                  Car individualCar = value.getUserCart()[index];
 
                   //return the cart item
                   return CartItem(
-                    car: _individualCar
+                    car: individualCar
                   );
                 },
               ),

@@ -33,7 +33,7 @@ class _CartItemState extends State<CartItem> {
           width: 100,
         ),
         title: Text(widget.car.model),
-        subtitle: Text('\$' + widget.car.price),
+        subtitle: Text('\$${widget.car.price}'),
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: removeItemFromCart,
